@@ -158,9 +158,11 @@ interface FBSDK{
     init(fbInitObject : FBInitParams) : void;
 
     /* This method lets you make calls to the Graph API. */
-    api(path : string, method : string, callback : (fbResponseObject : Object) => any) :  Object;
-    api(path : string, params : Object, callback : (fbResponseObject : FBResponseObject) => any) :  Object;
-    api(path : string, method : string, params : Object, callback : (fbResponseObject : Object) => any) : Object;
+    /** Method is 'get', no parameters are passed. **/
+    api(path : string, callback : (fbResponseObject : any|FBResponseObject) => any) :  Object;
+    api(path : string, method : string, callback : (fbResponseObject : any|FBResponseObject) => any) :  Object;
+    api(path : string, params : Object, callback : (fbResponseObject : any|FBResponseObject) => any) :  Object;
+    api(path : string, method : string, params : Object, callback : (fbResponseObject : any|FBResponseObject) => any) : Object;
 
     /* This method is used to trigger different forms of Facebook created UI dialogs. */
     ui(params : FBUIParams, handler : (fbResponseObject : Object) => any) : void;
